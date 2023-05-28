@@ -1,0 +1,14 @@
+version: "3"
+services:
+  nginx:
+    container_name: nginx
+    image: nginx
+    pull_policy: if_not_present
+    volumes:
+      - ~/hobby/nginx/configs/juju/nginx.conf:/etc/nginx/nginx.conf
+      - ~/hobby/nginx/configs/juju/fastcgi.conf:/etc/nginx/fastcgi.conf
+      - ~/hobby/nginx/configs/juju/proxy.conf:/etc/nginx/proxy.conf
+      - ~/hobby/nginx/configs/juju/mime.types:/etc/nginx/conf/mime.types
+      - ~/hobby/nginx/configs/juju/logs:/logs
+    ports:
+      - 80:80
